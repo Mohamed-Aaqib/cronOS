@@ -129,11 +129,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\utils\Hello.cpp" />
+    <ClCompile Include="..\..\src\utils\DedupUtils.cpp" />
     <ClCompile Include="ChronOSCore.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\utils\Hello.h" />
+    <ClInclude Include="..\..\include\events\Event.h" />
+    <ClInclude Include="..\..\include\events\HostEvent.h" />
+    <ClInclude Include="..\..\include\events\LogEvent.h" />
+    <ClInclude Include="..\..\include\events\NetworkEvent.h" />
+    <ClInclude Include="..\..\include\utils\IPUtils.h" />
+    <ClInclude Include="..\..\include\utils\TimeUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

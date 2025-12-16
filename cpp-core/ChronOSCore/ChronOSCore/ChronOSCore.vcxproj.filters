@@ -45,12 +45,27 @@
     <ClCompile Include="ChronOSCore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\utils\Hello.cpp">
+    <ClCompile Include="..\..\src\utils\DedupUtils.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\utils\Hello.h">
+    <ClInclude Include="..\..\include\events\Event.h">
+      <Filter>include\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\events\HostEvent.h">
+      <Filter>include\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\events\NetworkEvent.h">
+      <Filter>include\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\events\LogEvent.h">
+      <Filter>include\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\utils\TimeUtils.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\utils\IPUtils.h">
       <Filter>include\utils</Filter>
     </ClInclude>
   </ItemGroup>
