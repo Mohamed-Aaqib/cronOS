@@ -10,8 +10,22 @@ cpp-core/**/Release/
 python-ml/venv/
 python-ml/__pycache__/
 
-# Java
+# java
 java-backend/target/
+
+# vs
+.vs/
+*.VC.db
+*.VC.opendb
+*.VC.db-shm
+*.VC.db-wal
+ipch/
+*.ipch
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+DocumentLayout.json
 
 
 # secrets
