@@ -1,0 +1,25 @@
+#c++
+
+cpp-core/**/x64/
+cpp-core/**/Debug/
+cpp-core/**/Release/
+
+
+#python 
+
+python-ml/venv/
+python-ml/__pycache__/
+
+# Java
+java-backend/target/
+
+
+# secrets
+
+.env
+.env.local
+
+
+# os
+.DS_Store
+Thumbs.db
