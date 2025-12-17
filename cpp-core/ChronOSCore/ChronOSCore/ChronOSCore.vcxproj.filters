@@ -48,6 +48,12 @@
     <ClCompile Include="..\..\src\utils\DedupUtils.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\test\TestNormalization.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\PCAPParser.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\events\Event.h">
@@ -67,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="..\..\include\utils\IPUtils.h">
       <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\RingBuffer.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\PCAPParser.h">
+      <Filter>include\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
