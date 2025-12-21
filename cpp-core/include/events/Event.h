@@ -5,17 +5,19 @@ using namespace std;
 
 class Event {
 
-public:
+protected:
 	using Timepoint = chrono::system_clock::time_point;
+	Timepoint timestamp;
 
-	explicit Event(Timepoint ts);
+public:
 
-	Timepoint getTimeStamp() const;
+	explicit Event(Timepoint ts) : timestamp(ts) {};
+
+	Timepoint getTimeStamp() const { return timestamp; };
+
 	virtual string getType() const = 0;
 	virtual string serialize() const = 0;
 
 	virtual ~Event() = default;
 
-protected:
-	Timepoint timestamp;
 };

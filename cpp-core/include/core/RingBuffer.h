@@ -38,10 +38,16 @@ public:
 		}
 
 		item = buffer[curr_tail];
-		tail.store(((curr_tail+1) % size),memory_order_release)
+		tail.store(((curr_tail + 1) % size), memory_order_release);
 
 		return true;
 	}
 
+	size_t getSize() const {
+		size_t h = head.load();
+		size_t t = tail.load();
+		return (h >= t) ? h - t : size - t + h;
+
+	}
 
 };

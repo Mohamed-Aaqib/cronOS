@@ -10,7 +10,6 @@ private:
 	string filepath;
 
 public:
-	PCAPParser(const string& file);
+	PCAPParser(const string& file) : filepath(file) {};
 	void parse(RingBuffer<Event,8192>& buffer);
-
 };

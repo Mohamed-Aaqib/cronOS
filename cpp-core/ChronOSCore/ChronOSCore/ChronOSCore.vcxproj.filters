@@ -54,6 +54,15 @@
     <ClCompile Include="..\..\src\core\PCAPParser.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\utils\IPUtils.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\TimeUtils.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\LogParser.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\events\Event.h">
@@ -78,6 +87,12 @@
       <Filter>include\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\core\PCAPParser.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\utils\DedupUtils.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\LogParser.h">
       <Filter>include\core</Filter>
     </ClInclude>
   </ItemGroup>
