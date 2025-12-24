@@ -123,6 +123,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Programmig\final_push\ChronOS\cpp-core\include;C:\Programmig\final_push\ChronOS\cpp-core\npcap-sdk\npcap-sdk-1.15\Include;C:\Program Files\MySQL\MySQL Connector C++ 9.5\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,24 +135,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\core\LogParser.cpp" />
-    <ClCompile Include="..\..\src\core\PCAPParser.cpp" />
-    <ClCompile Include="..\..\src\utils\DedupUtils.cpp" />
+    <ClCompile Include="..\..\src\core\FlowAggregator.cpp" />
+    <ClCompile Include="..\..\src\core\GraphBuilder.cpp" />
+    <ClCompile Include="..\..\src\core\PathReconstructor.cpp" />
+    <ClCompile Include="..\..\src\core\PCAPIngestor.cpp" />
+    <ClCompile Include="..\..\src\core\ThreadPool.cpp" />
+    <ClCompile Include="..\..\src\utils\HashUtils.cpp" />
     <ClCompile Include="..\..\src\utils\IPUtils.cpp" />
     <ClCompile Include="..\..\src\utils\TimeUtils.cpp" />
     <ClCompile Include="..\..\test\TestNormalization.cpp" />
     <ClCompile Include="ChronOSCore.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\core\LogParser.h" />
-    <ClInclude Include="..\..\include\core\PCAPParser.h" />
-    <ClInclude Include="..\..\include\core\RingBuffer.h" />
+    <ClInclude Include="..\..\include\core\Edge.h" />
+    <ClInclude Include="..\..\include\core\FlowAggregator.h" />
+    <ClInclude Include="..\..\include\core\FlowKey.h" />
+    <ClInclude Include="..\..\include\core\Graph.h" />
+    <ClInclude Include="..\..\include\core\GraphBuilder.h" />
+    <ClInclude Include="..\..\include\core\LockFreeQueue.h" />
+    <ClInclude Include="..\..\include\core\Node.h" />
+    <ClInclude Include="..\..\include\core\Path.h" />
+    <ClInclude Include="..\..\include\core\PathReconstructor.h" />
+    <ClInclude Include="..\..\include\core\PathScorer.h" />
+    <ClInclude Include="..\..\include\core\PCAPIngestor.h" />
+    <ClInclude Include="..\..\include\core\TemporalEdge.h" />
+    <ClInclude Include="..\..\include\core\ThreadPool.h" />
     <ClInclude Include="..\..\include\events\Event.h" />
-    <ClInclude Include="..\..\include\events\HostEvent.h" />
-    <ClInclude Include="..\..\include\events\LogEvent.h" />
     <ClInclude Include="..\..\include\events\NetworkEvent.h" />
-    <ClInclude Include="..\..\include\utils\DedupUtils.h" />
+    <ClInclude Include="..\..\include\utils\HashUtils.h" />
     <ClInclude Include="..\..\include\utils\IPUtils.h" />
+    <ClInclude Include="..\..\include\utils\PerfCounters.h" />
     <ClInclude Include="..\..\include\utils\TimeUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

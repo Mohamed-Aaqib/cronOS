@@ -7,7 +7,7 @@
 using namespace std;
 
 
-explicit GraphBuilder::GraphBuilder(shared_ptr<Graph> graph_):graph(move(graph_)) {};
+GraphBuilder::GraphBuilder(shared_ptr<Graph> graph_):graph(graph_) {};
 
 void GraphBuilder::ingestEvent(const NetworkEvent& evt) {
 

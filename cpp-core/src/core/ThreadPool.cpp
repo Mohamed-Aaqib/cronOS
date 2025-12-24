@@ -23,7 +23,7 @@ void ThreadPool::workerLoop() {
 }
 
 
-ThreadPool::ThreadPool(size_t numThreads = thread::hardware_concurrency()) {
+ThreadPool::ThreadPool(size_t numThreads) {
 	for (size_t i = 0; i < numThreads; i++) {
 		workers_.emplace_back(&ThreadPool::workerLoop, this);
 	}

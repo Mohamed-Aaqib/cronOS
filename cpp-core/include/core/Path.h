@@ -23,7 +23,7 @@ public:
 		return edges;
 	}
 
-	void removeLastEdge() {
+	void remove_lastEdge() {
 		if (!edges.empty()) edges.pop_back();
 	}
 

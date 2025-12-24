@@ -33,7 +33,7 @@ void FlowAggregator::flushExpired(Sink&& emit) {
 
 	auto now = chrono::steady_clock::now();
 
-	for (auto it = flows.begin(); it != flows.end()) {
+	for (auto it = flows.begin(); it != flows.end();) {
 
 		if (now - it->second.first_seen > flow_timeout) {
 
@@ -60,7 +60,7 @@ void FlowAggregator::flushExpired(Sink&& emit) {
 			it = flows.erase(it);
 		}
 		else {
-			++it
+			++it;
 		}
 
 	}

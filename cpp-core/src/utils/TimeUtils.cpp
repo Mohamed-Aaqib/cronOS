@@ -27,7 +27,12 @@ namespace ChronOS::Utils{
 
 	string timePointToString(const chrono::system_clock::time_point& tp) {
 		time_t t = chrono::system_clock::to_time_t(tp);
-		tm tmm = *gmtime(&t);
+		tm tmm = {};
+		#ifdef _WIN32
+				gmtime_s(&tmm, &t);   // Windows (thread-safe)
+		#else
+				gmtime_r(&t, &tmm);   // Linux / macOS (thread-safe)
+		#endif
 		char buffer[32];
 		strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", &tmm);
 		return string(buffer);

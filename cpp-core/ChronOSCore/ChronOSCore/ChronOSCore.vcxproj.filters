@@ -45,14 +45,8 @@
     <ClCompile Include="ChronOSCore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\utils\DedupUtils.cpp">
-      <Filter>src\utils</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\test\TestNormalization.cpp">
       <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\core\PCAPParser.cpp">
-      <Filter>src\core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\utils\IPUtils.cpp">
       <Filter>src\utils</Filter>
@@ -60,7 +54,22 @@
     <ClCompile Include="..\..\src\utils\TimeUtils.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\core\LogParser.cpp">
+    <ClCompile Include="..\..\src\utils\HashUtils.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\ThreadPool.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\FlowAggregator.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\PCAPIngestor.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\GraphBuilder.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\PathReconstructor.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,13 +77,7 @@
     <ClInclude Include="..\..\include\events\Event.h">
       <Filter>include\events</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\events\HostEvent.h">
-      <Filter>include\events</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\events\NetworkEvent.h">
-      <Filter>include\events</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\events\LogEvent.h">
       <Filter>include\events</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\utils\TimeUtils.h">
@@ -83,16 +86,49 @@
     <ClInclude Include="..\..\include\utils\IPUtils.h">
       <Filter>include\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\core\RingBuffer.h">
-      <Filter>include\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\core\PCAPParser.h">
-      <Filter>include\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\utils\DedupUtils.h">
+    <ClInclude Include="..\..\include\utils\HashUtils.h">
       <Filter>include\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\core\LogParser.h">
+    <ClInclude Include="..\..\include\utils\PerfCounters.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\LockFreeQueue.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\ThreadPool.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\FlowKey.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\FlowAggregator.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\PCAPIngestor.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\Node.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\Edge.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\TemporalEdge.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\Graph.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\GraphBuilder.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\Path.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\PathScorer.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\PathReconstructor.h">
       <Filter>include\core</Filter>
     </ClInclude>
   </ItemGroup>

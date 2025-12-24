@@ -31,7 +31,7 @@ public:
 		}
 	}
 
-	bool push(const T& Item) {
+	bool push(const T& item) {
 
 		Node* node;
 		size_t pos = head_.load(memory_order_relaxed);

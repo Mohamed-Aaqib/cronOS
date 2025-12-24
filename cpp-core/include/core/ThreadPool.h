@@ -25,7 +25,7 @@ private:
 
 public:
 
-	ThreadPool(size_t numThreads = thread::hardware_concurrency());
+	explicit ThreadPool(size_t numThreads = thread::hardware_concurrency());
 
 	bool submit(Task&& task);
 
