@@ -111,7 +111,6 @@ void PCAPIngestor::run(FlowAggregator& aggregator) {
         
             aggregator.ingestPacket(key, header->len, false, false, false, false);
 
-        
         }
 
 	}

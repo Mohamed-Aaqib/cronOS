@@ -56,8 +56,8 @@ void FlowAggregator::flushExpired(Sink&& emit) {
 			);
 
 			emit(evt);
+			// after erasing it points to next element in the map.
 			it = flows.erase(it);
-
 		}
 		else {
 			++it
