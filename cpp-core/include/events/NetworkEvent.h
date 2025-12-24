@@ -1,28 +1,72 @@
 #pragma once
 #include "events/Event.h"
-#include <string>
-#include <sstream>
+#include <cstdint>
+#include <cstdio>
 using namespace std;
 
 class NetworkEvent : public Event {
 
 public:
 
-	string srcIp;
-	string dstIp;
-	int port;
+	uint8_t src_ip[16];
+	uint8_t dst_ip[16];
+	
+	uint16_t src_port;
+	uint16_t dst_port;
 
-	NetworkEvent(Timepoint ts, const string& src = " ", const string& dst = " ", int p = 0) : Event(ts), srcIp(src), dstIp(dst), port(p) {};
+	uint8_t protocol;
+	uint64_t bytes;
+	uint32_t packets;
 
-	string getType() const override { return "NetworkEvent"; };
+	uint8_t flags;
 
-	string serialize() const override {
 
-		stringstream ss;
-		ss << getType() << "|" << srcIp << "|" << dstIp << "|" << port;
 
-		return ss.str();
-	}
+
+	NetworkEvent(
+
+		Timepoint ts,
+		uint8_t src[16],
+		uint8_t dst[16],
+		uint16_t sport,
+		uint16_t dport,
+		uint8_t prot,
+		uint64_t byteCount,
+		uint32_t packetCount,
+		uint8_t flagBits
+
+		) : Event(ts), src_port(sport), dst_port(dport), protocol(prot), bytes(byteCount), packets(packetCount), flags(flagBits) {
+	
+		for (int i = 0; i < 16; i++) {
+			src_ip[i] = src[i];
+			dst_ip[i] = dst[i];
+		}
+		
+	};
+		
+
+	const char* getType() const noexcept override { 
+		return "NetworkEvent"; 
+	};
+
+	void serialize(char* buffer, size_t buffer_size) const noexcept override {
+
+		// could use string stream but it has type errors and not very clean unlike this formatting style
+		snprintf(
+			buffer,
+			buffer_size,
+			"NET|%u|%u|%u|%u|%u|%llu|%u|%u",
+			protocol,
+			src_port,
+			dst_port,
+			flags,
+			packets,
+			static_cast<unsigned long long>(bytes),
+			src_ip[15],
+			dst_ip[15]
+		);
+
+	};
 
 
 };

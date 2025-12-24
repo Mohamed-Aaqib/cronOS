@@ -5,18 +5,19 @@ using namespace std;
 
 class Event {
 
+	
 protected:
-	using Timepoint = chrono::system_clock::time_point;
+	using Timepoint = chrono::steady_clock::time_point;
 	Timepoint timestamp;
 
 public:
 
-	explicit Event(Timepoint ts) : timestamp(ts) {};
+	explicit Event(Timepoint ts) noexcept : timestamp(ts) {};
 
-	Timepoint getTimeStamp() const { return timestamp; };
+	Timepoint getTimeStamp() const noexcept { return timestamp; };
 
-	virtual string getType() const = 0;
-	virtual string serialize() const = 0;
+	virtual const char* getType() const noexcept = 0;
+	virtual void serialize(char* buffer, size_t buffer_size) const noexcept = 0;
 
 	virtual ~Event() = default;
 

@@ -5,7 +5,7 @@ using namespace std;
 
 namespace ChronOS::Utils{
 
-	// use FNV hashing algorithm
+	// use FNV-1a hashing algorithm, lightweight not for cryptography
 	uint64_t hashBytes(const uint8_t* data, size_t len) {
 		uint64_t hash = 14695981039346656037ULL;
 		for (size_t i = 0; i < len; i++) {
