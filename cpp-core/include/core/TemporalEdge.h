@@ -10,7 +10,7 @@ class TemporalEdge : public Edge {
 
 public:
 	
-	using TimePoint = chrono::system_clock::time_point;
+	using TimePoint = chrono::steady_clock::time_point;
 
 private:
 
