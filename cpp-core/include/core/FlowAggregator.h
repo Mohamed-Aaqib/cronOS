@@ -1,5 +1,7 @@
 #pragma once
 #include <cstdint>
+#include <cstring>
+#include <mutex>
 #include <events/NetworkEvent.h>
 #include <core/FlowKey.h>
 #include <chrono>
@@ -24,20 +26,95 @@ struct FlowState {
 
 class FlowAggregator {
 
-public:
-
-	explicit FlowAggregator(chrono::seconds timeout);
-
-	void ingestPacket(const FlowKey& key, uint32_t bytes, bool syn, bool fin, bool rst, bool ack);
-
-	template<typename Sink>
-	void flushExpired(Sink&& emit);
-
 
 private:
 	chrono::seconds flow_timeout;
 	// tho we could use pointers, we would have to manage it and cache is worse cache locality , since everything is scatterd
 	//TODO: think about hashing would work
-	unordered_map<FlowKey,FlowState>flows;
+	unordered_map<FlowKey, FlowState>flows;
+	mutable mutex flows_mutex;
+
+
+public:
+
+	explicit FlowAggregator(chrono::seconds timeout);
+
+	void ingestPacket(const FlowKey& key, uint32_t bytes, bool syn, bool fin, bool rst, bool ack, chrono::steady_clock::time_point packet_time);
+
+	template<typename Sink>
+	void flushExpired(Sink&& emit) {
+
+		auto now = chrono::steady_clock::now();
+
+		for (auto it = flows.begin(); it != flows.end();) {
+
+			if (now - it->second.first_seen > flow_timeout) {
+
+				const FlowKey& key = it->first;
+				const FlowState& st = it->second;
+
+				uint8_t src_ip[16];
+				uint8_t dst_ip[16];
+				memcpy(src_ip, key.src_ip.data(), 16);
+				memcpy(dst_ip, key.dst_ip.data(), 16);
+
+				NetworkEvent evt(
+					st.last_seen,
+					src_ip,
+					dst_ip,
+					key.src_port,
+					key.dst_port,
+					static_cast<uint8_t>(key.protocol),
+					st.byte_count,
+					st.packet_count,
+					(st.syn_count ? 0x01 : 0) |
+					(st.fin_count ? 0x02 : 0) |
+					(st.rst_count ? 0x04 : 0) |
+					(st.ack_count ? 0x08 : 0)
+				);
+
+				emit(evt);
+				// after erasing it points to next element in the map.
+				it = flows.erase(it);
+			}
+			else {
+				++it;
+			}
+
+		}
+	}
+
+	// flush everything
+	template<typename Sink>
+	void flushAll(Sink&& emit) {
+		for (auto it = flows.begin(); it != flows.end();) {
+			const FlowKey& key = it->first;
+			const FlowState& st = it->second;
+
+			uint8_t src_ip[16];
+			uint8_t dst_ip[16];
+			memcpy(src_ip, key.src_ip.data(), 16);
+			memcpy(dst_ip, key.dst_ip.data(), 16);
+
+			NetworkEvent evt(
+				st.last_seen,
+				src_ip,
+				dst_ip,
+				key.src_port,
+				key.dst_port,
+				static_cast<uint8_t>(key.protocol),
+				st.byte_count,
+				st.packet_count,
+				(st.syn_count ? 0x01 : 0) |
+				(st.fin_count ? 0x02 : 0) |
+				(st.rst_count ? 0x04 : 0) |
+				(st.ack_count ? 0x08 : 0)
+			);
+
+			emit(evt);
+			it = flows.erase(it);
+		}
+	}
+
 
 };

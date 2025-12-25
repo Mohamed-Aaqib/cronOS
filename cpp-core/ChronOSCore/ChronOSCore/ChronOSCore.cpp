@@ -3,6 +3,7 @@
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
 #include <cppconn/prepared_statement.h>
+#include "utils/test_pcap_ingestion.h"
 #include "events/Event.h"
 
 using namespace std;
@@ -33,7 +34,7 @@ int main()
     //    exit(1);
     //}
 
-    cout << "main works" << endl;
+    test_pcap_ingestion();
 
 
     return 0;

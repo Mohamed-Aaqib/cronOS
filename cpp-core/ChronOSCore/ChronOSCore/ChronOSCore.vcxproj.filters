@@ -45,9 +45,6 @@
     <ClCompile Include="ChronOSCore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test\TestNormalization.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\utils\IPUtils.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
@@ -71,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\core\PathReconstructor.cpp">
       <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_pcap_ingestion.cpp">
+      <Filter>test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +129,9 @@
       <Filter>include\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\core\PathReconstructor.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\utils\test_pcap_ingestion.h">
       <Filter>include\core</Filter>
     </ClInclude>
   </ItemGroup>
