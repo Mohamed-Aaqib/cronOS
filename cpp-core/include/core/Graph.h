@@ -49,7 +49,10 @@ public:
 	
 	}
 
-	shared_ptr<TemporalEdge> add_temporal_edge(string& src_ip, string& dst_ip, TemporalEdge::TimePoint start, TemporalEdge::TimePoint end, uint8_t protocol) {
+	shared_ptr<TemporalEdge> add_temporal_edge(string& src_ip, string& dst_ip, 
+	                                           TemporalEdge::TimePoint start, TemporalEdge::TimePoint end, 
+	                                           uint8_t protocol, uint16_t src_port, uint16_t dst_port, 
+	                                           uint8_t flags) {
 
 
 		auto src = get_create_node(src_ip);
@@ -60,8 +63,18 @@ public:
 			dst->getId(),
 			start,
 			end,
-			protocol
+			protocol,
+			src_port,
+			dst_port,
+			flags
 		);
+
+		// Update node behavioral features (bytes will be updated in GraphBuilder after add_packets)
+		src->increment_out_degree();
+		src->increment_unique_port();  // Simplified - could track unique ports more precisely
+		
+		dst->increment_in_degree();
+		dst->increment_unique_port();
 
 		{
 			lock_guard<mutex> lock(edges_mutex);

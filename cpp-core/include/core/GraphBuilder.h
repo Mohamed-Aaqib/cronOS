@@ -15,7 +15,11 @@ public:
 	void ingestEvent(const NetworkEvent& evt);
 
 	template<typename Iterable>
-	void ingestEvents(const Iterable& events);
+	void ingestEvents(const Iterable& events) {
+		for (const auto& evt : events) {
+			ingestEvent(evt);
+		}
+	}
 
 
 };

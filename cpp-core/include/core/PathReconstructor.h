@@ -15,21 +15,11 @@ private:
 	Graph& graph;
 	unordered_map<Node::NodeId, vector<shared_ptr<TemporalEdge>>> adjacency;
 
-	void build_adjacency();
-
-	void dfs(
-		Node::NodeId current,
-		Path& currentPath,
-		std::vector<Path>& allPaths,
-		size_t maxDepth,
-		unordered_set<Node::NodeId>& visited 
-	);
-		
 public:
 
+	// Build adjacency list from graph edges (public so callers can refresh after graph changes)
+	void build_adjacency();
+
 	explicit PathReconstructor(Graph& g) : graph(g) { build_adjacency(); };
-
-	vector<Path> recostructPath(size_t maxDepth = 5);
-
 
 };

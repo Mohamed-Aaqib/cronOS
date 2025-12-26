@@ -20,12 +20,16 @@ public:
 
 	uint8_t flags;
 
+	Timepoint start_time;  // First packet time (also stored in base class timestamp)
+	Timepoint end_time;    // Last packet time
+
 
 
 
 	NetworkEvent(
 
-		Timepoint ts,
+		Timepoint start,
+		Timepoint end,
 		uint8_t src[16],
 		uint8_t dst[16],
 		uint16_t sport,
@@ -35,7 +39,7 @@ public:
 		uint32_t packetCount,
 		uint8_t flagBits
 
-		) : Event(ts), src_port(sport), dst_port(dport), protocol(prot), bytes(byteCount), packets(packetCount), flags(flagBits) {
+		) : Event(start), src_port(sport), dst_port(dport), protocol(prot), bytes(byteCount), packets(packetCount), flags(flagBits), start_time(start), end_time(end) {
 	
 		for (int i = 0; i < 16; i++) {
 			src_ip[i] = src[i];
