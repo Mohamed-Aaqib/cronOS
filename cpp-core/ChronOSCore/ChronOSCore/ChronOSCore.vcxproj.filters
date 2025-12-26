@@ -72,6 +72,12 @@
     <ClCompile Include="..\..\test\test_pcap_ingestion.cpp">
       <Filter>test</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\test\test_nodes_edges.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_path_reconstructor.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\events\Event.h">
@@ -129,6 +135,12 @@
       <Filter>include\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\core\PathReconstructor.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\test_path_reconstructor.h">
+      <Filter>include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\test_nodes_edges.h">
       <Filter>include\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\utils\test_pcap_ingestion.h">

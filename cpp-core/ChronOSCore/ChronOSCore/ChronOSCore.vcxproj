@@ -143,6 +143,8 @@
     <ClCompile Include="..\..\src\utils\HashUtils.cpp" />
     <ClCompile Include="..\..\src\utils\IPUtils.cpp" />
     <ClCompile Include="..\..\src\utils\TimeUtils.cpp" />
+    <ClCompile Include="..\..\test\test_nodes_edges.cpp" />
+    <ClCompile Include="..\..\test\test_path_reconstructor.cpp" />
     <ClCompile Include="..\..\test\test_pcap_ingestion.cpp" />
     <ClCompile Include="ChronOSCore.cpp" />
   </ItemGroup>
@@ -159,6 +161,8 @@
     <ClInclude Include="..\..\include\core\PathScorer.h" />
     <ClInclude Include="..\..\include\core\PCAPIngestor.h" />
     <ClInclude Include="..\..\include\core\TemporalEdge.h" />
+    <ClInclude Include="..\..\include\core\test_nodes_edges.h" />
+    <ClInclude Include="..\..\include\core\test_path_reconstructor.h" />
     <ClInclude Include="..\..\include\core\ThreadPool.h" />
     <ClInclude Include="..\..\include\events\Event.h" />
     <ClInclude Include="..\..\include\events\NetworkEvent.h" />
